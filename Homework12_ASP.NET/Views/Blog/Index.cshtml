@@ -1,0 +1,21 @@
+﻿@model List<News>
+@{
+    string theme = ViewBag.Theme as string ?? "light";
+    string bgColor = theme == "dark" ? "#222" : "#fff";
+    string textColor = theme == "dark" ? "#fff" : "#000";
+}
+
+<div style="background-color:@bgColor; color:@textColor; padding:20px;">
+    <h2>Новости блога</h2>
+
+    @foreach (var news in Model)
+    {
+        <div style="margin-bottom:20px;">
+            <h3>@news.Title</h3>
+            <p>@news.Content</p>
+            <small>@news.PublishedAt.ToString("dd.MM.yyyy HH:mm")</small>
+        </div>
+    }
+
+    <a href="/Blog/Settings">Настройки чтения</a>
+</div>

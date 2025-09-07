@@ -1,0 +1,19 @@
+﻿@{
+    string theme = ViewBag.Theme as string ?? "light";
+}
+
+<h2>Настройки чтения</h2>
+
+<form method="post" asp-action="Settings">
+    <label>
+        <input type="radio" name="theme" value="light" @(theme == "light" ? "checked" : "") /> Светлая тема
+    </label>
+    <br />
+    <label>
+        <input type="radio" name="theme" value="dark" @(theme == "dark" ? "checked" : "") /> Тёмная тема
+    </label>
+    <br />
+    <button type="submit">Сохранить</button>
+</form>
+
+<a href="/Blog/Index">Назад в блог</a>
